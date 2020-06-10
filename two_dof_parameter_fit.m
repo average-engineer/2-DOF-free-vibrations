@@ -2,6 +2,9 @@ clear all
 close all
 clc
 
+%purpose of this program is to compute the value of the damping coefficient for which the aggregrate motion
+%of the system (combining bounce and pitch) is minimum
+
 %parameter definition
 %type of solver being used for computing bounce and pitch
 solver = 'anal';
@@ -27,10 +30,12 @@ plot(damping,cost,'-*')
 xlabel('Damping')
 ylabel('Absolute Motion')
 
-
+%local optimization (less accurate but faster)
 %finding the optimum value of damping bounded by the lower and upper bound for which the absolute motion is minimum 
 % damping_optimum = fmincon(@(damping,cost)cost_function(damping,solver),damping_0,[],[],[],[],damping_lower,damping_upper);
 
+
+%global optimization (more accurate but slower)
 %global optimization object
 gs = GlobalSearch;
 
