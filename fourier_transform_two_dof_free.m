@@ -28,7 +28,7 @@ x_dot_0 = 0;
 p_0 = 1.0;%radians
 p_dot_0 = 0;%radians
 
-%sampling rate
+%sampling rate (number of samples/frames in 1 second)
 fs = 100;
 
 %time span
